@@ -192,7 +192,7 @@ const HomePage = () => {
             <>
 
           {
-            loading ?
+            !loading ?
             <Loading type="loading_data"/>
             :
             <>
