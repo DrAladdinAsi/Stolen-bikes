@@ -66,13 +66,7 @@ const HomePage = () => {
       setLoading(true);
       try {
         const response = await axios.get("https://bikeindex.org:443/api/v3/search/count?location=Munich&distance=100&stolenness=proximity", {
-          // params: {
-          //   page: 1,
-          //   per_page: 25,
-          //   location: "Munich",
-          //   distance: 100,
-          //   stolenness: "proximity",
-          // },
+
         });
         setSearchCounts(response.data);
         setLoading(false);
@@ -91,13 +85,10 @@ const HomePage = () => {
 
   function formatNumber(value: number): string {
     if (value >= 1000000) {
-        // For numbers in the millions
         return `${Math.floor(value / 1000000)}M+`;
     } else if (value >= 1000) {
-        // For numbers in the thousands
         return `${Math.floor(value / 1000)}k+`;
     }
-    // For numbers below 1000, return the number itself
     return value.toString();
 }
 
@@ -115,25 +106,12 @@ const HomePage = () => {
     let  indexOfFirstBike = indexOfLastBike - bikesPerPage;
     let  currentBikes = filteredBikes.slice(indexOfFirstBike, indexOfLastBike);
   
-  // const handelSearchClicked = ()=>{
-  //    setCurrentPage(1);
-  //   let  filteredBikesres = filteredBikes.filter((bike) =>
-  //     bike.title.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  
-  //  setFilteredBikes(filteredBikesres);
 
-  //   console.log("the filtered data",filteredBikesres);
-  // }
-
-
-  // Total number of pages for pagination
-  
   
   const totalPages = Math.ceil(filteredBikes.length / bikesPerPage);
   const pageNumbers = [...Array(totalPages).keys()].map((i) => i + 1);
 
-  console.log("the totoal pages depending on the filtered pikes:" , totalPages)
+
 
 
 
@@ -146,20 +124,19 @@ const HomePage = () => {
     const startTimestamp = startDate ? new Date(startDate).getTime() / 1000 : 0;
     const endTimestamp = endDate ? new Date(endDate).getTime() / 1000 : Infinity;
 
-    console.log("the start date is :",startTimestamp);
-    console.log("the end date is :",endTimestamp);
+
 
     // Filter based on title and date range
     const filtered = bikes.filter((bike) => {
              
-      console.log("if the bike within the date :",bike.date_stolen)
+
 
       const bikeDate = bike.date_stolen;
       if(bikeDate){
       const withinDateRange =
         bikeDate >= startTimestamp && bikeDate <= endTimestamp;
        
-        console.log("if the bike within the date :",withinDateRange)
+   
 
       return (
         bike.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -192,7 +169,7 @@ const HomePage = () => {
             <>
 
           {
-            !loading ?
+            loading ?
             <Loading type="loading_data"/>
             :
             <>
