@@ -1,0 +1,158 @@
+.navbar {
+    width: 100%;
+    height: 3rem;
+    background-color: rgb(49, 54, 63);
+    display: flex;
+}
+
+.navbar .navbar_right {
+    flex: 5;
+
+}
+
+ .navbar_right .big_navbar {
+    height: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 3rem;
+    padding: 0 .5rem;
+    padding-right: 2rem;
+
+}
+
+.navbar_right .small_navbar{
+    height: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+
+
+}
+
+ .nav_links_white {
+    color: rgb(194, 194, 194);
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+ .nav_links_white:hover{
+    color: white;
+}
+
+ .active_navbarItem {
+    color:  white;
+    border-bottom: 1px solid rgb(0, 140, 255);
+}
+
+.nav_links_signUp{
+    padding: .4rem .5rem;
+    border-radius: .2rem;
+    border: 1px solid rgb(0, 140, 255);
+}
+
+ .navbar_right .small_navbar .small_navbar_icon_menu {
+
+    width: 3rem;
+    height: 3rem;
+    display: none;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: .15rem;
+    cursor: pointer;
+    z-index: 1000;
+
+}
+
+ .menuIcon_item {
+    width: 70%;
+    height: .2rem;
+    background-color: rgb(206, 206, 206);
+    z-index: 1000;
+}
+
+ .menu {
+    position: absolute;
+    top: 0;
+    right: -50%;
+    background-color: rgb(99, 100, 100);
+    width: 50%;
+    height: 100vh;
+    color: white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6rem;
+    gap: 1.5rem;
+    font-size: .9rem;
+    transition: all 1s ease;
+}
+
+ .nav_links_white {
+    font-size: 1rem;
+    color: white;
+}
+ .menu.active {
+    right: 0;
+    transition: all 1s ease;
+}
+
+ .navbar_left {
+    height: 3rem;
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    padding-right: 2rem;
+}
+
+
+
+ .navbar_image {
+    width: fit-content;
+    height: 2.5rem;
+    object-fit: cover;
+    cursor: pointer;
+    margin-left: .5rem;
+ 
+}
+
+
+
+.span_text_in_NavBar:hover {
+    cursor: pointer;
+}
+
+/* Media query for big_md (translated from the @include big_md SCSS) */
+@media (max-width: 992px) {
+    .navbar_right .big_navbar {
+        display: none;
+    }
+
+    .navbar_right .small_navbar  .small_navbar_icon_menu {
+        display: flex;
+        align-self: flex-start;
+    }
+
+
+    .small_navbar{
+      display: flex;
+    }
+
+    .small_navbar .menu {
+        display: flex;
+    }
+
+     .nav_links_white {
+        display: initial;
+    }
+
+    .small_navbar .menu {
+        z-index: 888;
+    }
+}
