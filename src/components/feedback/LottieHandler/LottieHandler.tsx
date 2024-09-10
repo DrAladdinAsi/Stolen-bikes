@@ -20,7 +20,7 @@ const LottieHandler = ({ type, message }: LottieHandlerProps) => {
 
   return (
     <div className="lottieAndMessage_div">
-      <Lottie animationData={lottie} style={{ width: "100px" }} />
+      <Lottie animationData={lottie} style={{ width: "100px", overflow:"none" }} />
       {message && <h3 style={messageStyle}>{message}</h3>}
     </div>
   );
